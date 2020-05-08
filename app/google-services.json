@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "111426505903",
+    "firebase_url": "https://send-message-using-firebase-au.firebaseio.com",
+    "project_id": "send-message-using-firebase-au",
+    "storage_bucket": "send-message-using-firebase-au.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111426505903:android:91224039b427a4d54f585a",
+        "android_client_info": {
+          "package_name": "com.justice.sendmessageusingfirebaseauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111426505903-hmbmnecr73uuaov5ghnl76jsj090n8vs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.justice.sendmessageusingfirebaseauth",
+            "certificate_hash": "a750750b75522391484378f5e5806f12824dc71e"
+          }
+        },
+        {
+          "client_id": "111426505903-8lp716dh1f53lb494knotgv72rd080ql.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfSl4qzdOnRboZIlg65xThw4ONUAB303c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111426505903-8lp716dh1f53lb494knotgv72rd080ql.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
