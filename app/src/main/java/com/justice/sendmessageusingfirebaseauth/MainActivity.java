@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         }
         sendMessage("+"+contact);
 
-
+/////////////////
     }
 
     private void sendMessage(String contact) {
