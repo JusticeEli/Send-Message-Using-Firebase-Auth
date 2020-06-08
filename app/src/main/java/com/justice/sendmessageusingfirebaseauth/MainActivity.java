@@ -1,13 +1,18 @@
 package com.justice.sendmessageusingfirebaseauth;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.FirebaseException;
@@ -22,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Button sendBtn;
     private ProgressDialog progressDialog;
     private CoordinatorLayout coordinatorLayout;
+    private TextView textView;
 
 
     @Override
@@ -30,6 +36,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initWidgets();
         setOnClickListeners();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        super.onOptionsItemSelected(item);
+
+        if (item.getItemId() == R.id.instructionItem) {
+
+            BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(textView);
+            bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
+        }
+
+        return true;
     }
 
     private void setOnClickListeners() {
@@ -48,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             contactInput.setError("Please fill Field");
             return;
         }
-        sendMessage("+"+contact);
+        sendMessage("+" + contact);
 
 /////////////////
     }
@@ -65,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onVerificationFailed(FirebaseException e) {
 
-                Snackbar.make(coordinatorLayout,"Error: "+e.getMessage(),Snackbar.LENGTH_LONG).show();
+                Snackbar.make(coordinatorLayout, "Error: " + e.getMessage(), Snackbar.LENGTH_LONG).show();
                 progressDialog.dismiss();
 
             }
@@ -74,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                 super.onCodeSent(s, forceResendingToken);
 
-                Snackbar.make(coordinatorLayout,"Message Send",Snackbar.LENGTH_LONG).show();
+                Snackbar.make(coordinatorLayout, "Message Send", Snackbar.LENGTH_LONG).show();
                 progressDialog.dismiss();
             }
         });
@@ -86,7 +113,9 @@ public class MainActivity extends AppCompatActivity {
         contactInput = findViewById(R.id.contactInput);
         sendBtn = findViewById(R.id.sendBtn);
         progressDialog = new ProgressDialog(this);
-        coordinatorLayout=findViewById(R.id.coordinator);
+        coordinatorLayout = findViewById(R.id.coordinator);
+        textView = findViewById(R.id.textView);
+
 
     }
 }

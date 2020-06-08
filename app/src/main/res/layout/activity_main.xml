@@ -10,12 +10,12 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Contact"
         android:id="@+id/contactInput"
-        app:boxBackgroundMode="filled"
+        app:boxBackgroundMode="outline"
         app:helperText="Send message to">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -37,10 +37,18 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
+        android:background="@color/colorPrimaryLight"
         android:id="@+id/coordinator"
         android:layout_height="match_parent">
 
-
-
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:id="@+id/textView"
+    app:behavior_peekHeight="30dp"
+    app:behavior_hideable="true"
+    android:text="Instructions  \n\n Change the name of the app to be the message you want to send"
+    android:textAppearance="?attr/textAppearanceSearchResultTitle"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </LinearLayout>
